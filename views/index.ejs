@@ -1,0 +1,114 @@
+<%- include("partials/header") %>
+
+<div class="main-card">
+
+    <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+
+        <div>
+
+            <h1 class="page-title">
+                All Students
+            </h1>
+
+
+        </div>
+
+        <form method="GET" action="/students">
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="Search by name, course, city..."
+                    value="<%= search %>"
+                >
+
+                <button class="btn btn-dark">
+                    Search
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="table-container">
+
+        <<table class="table">
+
+    <thead>
+
+        <tr>
+            <th>Name</th>
+            <th>Roll No</th>
+            <th>Course</th>
+            <th>Age</th>
+            <th>Email ID</th>
+            <th>City</th>
+            <th>Actions</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+    <% students.forEach(student => { %>
+
+        <tr>
+
+            <td><strong><%= student.name %></strong></td>
+
+            <td><%= student.rollno %></td>
+
+            <td><%= student.course %></td>
+
+            <td><%= student.age %></td>
+
+            <td><%= student.email %></td>
+
+            <td>
+                <span class="badge bg-secondary p-2">
+                    <%= student.city %>
+                </span>
+            </td>
+
+            <td class="d-flex gap-2">
+
+                <a
+                    href="/students/view/<%= student._id %>"
+                    class="btn btn-info btn-sm"
+                >
+                    View
+                </a>
+
+                <a
+                    href="/students/edit/<%= student._id %>"
+                    class="btn btn-primary btn-sm"
+                >
+                    Edit
+                </a>
+
+                <a
+                    href="/students/delete/<%= student._id %>"
+                    class="btn btn-danger btn-sm"
+                    onclick="return confirm('Delete this student?')"
+                >
+                    Delete
+                </a>
+
+            </td>
+
+        </tr>
+
+    <% }) %>
+
+    </tbody>
+
+</table>
+    </div>
+
+</div>
+
+<%- include("partials/footer") %>

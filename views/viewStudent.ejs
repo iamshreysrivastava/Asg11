@@ -1,0 +1,49 @@
+<%- include("partials/header") %>
+
+<div class="card shadow-lg p-5 student-view">
+
+    <h2 class="text-center text-success mb-4">
+        Student Details
+    </h2>
+
+    <div class="row">
+
+        <div class="col-md-6 mb-3">
+            <h5>Name</h5>
+            <p><%= student.name %></p>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <h5>Roll Number</h5>
+            <p><%= student.rollno %></p>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <h5>Course</h5>
+            <p><%= student.course %></p>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <h5>Age</h5>
+            <p><%= student.age %></p>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <h5>Email</h5>
+            <p><%= student.email %></p>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <h5>City</h5>
+            <p><%= student.city %></p>
+        </div>
+
+    </div>
+
+    <a href="/students" class="btn btn-dark mt-3">
+        Back
+    </a>
+
+</div>
+
+<%- include("partials/footer") %>
